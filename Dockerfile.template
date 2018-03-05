@@ -44,50 +44,51 @@ COPY --from=0 /tmp/abs.war /tmp/abs.war
 
 
 # Database settings
-ENV AXEL_DB_DIALECT 'org.hibernate.dialect.PostgreSQLDialect'
-ENV AXEL_DB_DRIVER 'org.postgresql.Driver'
-ENV AXEL_DB_TYPE 'postgresql'
-ENV AXEL_DB_HOST 'localhost'
-ENV AXEL_DB_PORT '5432'
-ENV AXEL_DB_NAME 'axelor-business-suite'
-ENV AXEL_DB_USER ''
-ENV AXEL_DB_PASSWORD ''
+ENV DB_DIALECT 'org.hibernate.dialect.PostgreSQLDialect'
+ENV DB_DRIVER 'org.postgresql.Driver'
+ENV DB_TYPE 'postgresql'
+ENV DB_HOST 'localhost'
+ENV DB_PORT '5432'
+ENV DB_NAME 'axelor-business-suite'
+ENV DB_URL=jdbc:$DB_TYPE://$DB_HOST:$DB_PORT/$DB_NAME
+ENV DB_USER ''
+ENV DB_PASSWORD ''
 
 # link to be used with header logo
-ENV AXEL_URL_ROOT 'http://localhost:8080'
+ENV URL_ROOT 'http://localhost:8080'
 
 # Set default language
-ENV AXEL_LOCALE 'en'
+ENV LOCALE 'en'
 
 # Set default CSS theme, for example `blue`
-ENV AXEL_THEME 'theme-default'
+ENV THEME 'theme-default'
 
 # Application Mode: Set to 'dev' for development mode else 'prod'
-ENV AXEL_MODE 'prod'
+ENV MODE 'prod'
 
 # Application Demo: whether to import demo data for the application
-ENV AXEL_DEMO 'false'
+ENV DEMO 'false'
 
 # Date Format
-ENV AXEL_DATE_FORMAT 'yyyy-MM-dd'
+ENV DATE_FORMAT 'yyyy-MM-dd'
 
 # Timezone
-ENV AXEL_TIMEZONE 'UTC'
+ENV TIMEZONE 'UTC'
 
 
 # CORS configuration
 
 
 # TODO LDAP Configuration
-# ENV AXEL_LDAP_URL 'ldap://localhost:389'
-# ENV AXEL_LDAP_AUTH_TYPE 'simple'
-# ENV AXEL_LDAP_ADMIN_LOGIN ''
-# ENV AXEL_LDAP_ADMIN_PASS ''
-# ENV AXEL_LDAP_USER_BASE ''
-# ENV AXEL_LDAP_USER_FILTER '(uid={0})'
-# ENV AXEL_LDAP_GROUP_BASE ''
-# ENV AXEL_LDAP_GROUP_FILTER '(uniqueMember=uid={0})'
-# ENV AXEL_LDAP_GROUP_CLASS ''
+# ENV LDAP_URL 'ldap://localhost:389'
+# ENV LDAP_AUTH_TYPE 'simple'
+# ENV LDAP_ADMIN_LOGIN ''
+# ENV LDAP_ADMIN_PASS ''
+# ENV LDAP_USER_BASE ''
+# ENV LDAP_USER_FILTER '(uid={0})'
+# ENV LDAP_GROUP_BASE ''
+# ENV LDAP_GROUP_FILTER '(uniqueMember=uid={0})'
+# ENV LDAP_GROUP_CLASS ''
 
 
 
