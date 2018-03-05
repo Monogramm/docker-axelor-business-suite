@@ -120,8 +120,14 @@ RUN set -ex; \
 	rm -f /tmp/abs.war
 
 
-VOLUME $CATALINA_HOME/webapps/abs/WEB-INF/classes/application.properties
+VOLUME /srv/axelor/config
 VOLUME /srv/axelor/upload
+VOLUME /srv/axelor/reports
+VOLUME /srv/axelor/reports-gen
+VOLUME /srv/axelor/templates
+VOLUME /srv/axelor/data-export
+VOLUME /srv/axelor/logs
+
 
 EXPOSE 8080 8443
 
