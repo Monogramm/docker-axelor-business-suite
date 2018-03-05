@@ -1,0 +1,27 @@
+dist: trusty
+sudo: required
+
+services: docker
+
+language: bash
+
+branches:
+  only:
+    - master
+
+before_script:
+  - env | sort
+  - image="madmath03/docker-axelor-business-suite:${VERSION}"
+
+script:
+  - travis_retry docker build -t "$image" "images/${VERSION}"
+
+after_script:
+  - docker images
+  - docker run -d "$image" "images/${VERSION}"
+  - docker logs "$image"
+
+notifications:
+  email: false
+
+env: # Environments
