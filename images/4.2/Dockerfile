@@ -46,11 +46,7 @@ COPY --from=0 /tmp/abs.war /tmp/abs.war
 # Database settings
 ENV DB_DIALECT 'org.hibernate.dialect.PostgreSQLDialect'
 ENV DB_DRIVER 'org.postgresql.Driver'
-ENV DB_TYPE 'postgresql'
-ENV DB_HOST 'localhost'
-ENV DB_PORT '5432'
-ENV DB_NAME 'axelor-business-suite'
-ENV DB_URL=jdbc:$DB_TYPE://$DB_HOST:$DB_PORT/$DB_NAME
+ENV DB_URL=postgresql://localhost:5432/axelor-business-suite
 ENV DB_USER ''
 ENV DB_PASSWORD ''
 
@@ -79,16 +75,19 @@ ENV TIMEZONE 'UTC'
 # CORS configuration
 
 
-# TODO LDAP Configuration
-# ENV LDAP_URL 'ldap://localhost:389'
-# ENV LDAP_AUTH_TYPE 'simple'
-# ENV LDAP_ADMIN_LOGIN ''
-# ENV LDAP_ADMIN_PASS ''
-# ENV LDAP_USER_BASE ''
-# ENV LDAP_USER_FILTER '(uid={0})'
-# ENV LDAP_GROUP_BASE ''
-# ENV LDAP_GROUP_FILTER '(uniqueMember=uid={0})'
-# ENV LDAP_GROUP_CLASS ''
+# LDAP Configuration
+ENV LDAP_URL ''
+ENV LDAP_AUTH_TYPE 'simple'
+ENV LDAP_ADMIN_LOGIN ''
+ENV LDAP_ADMIN_PASS ''
+ENV LDAP_USER_BASE ''
+ENV LDAP_USER_FILTER '(uid={0})'
+ENV LDAP_GROUP_BASE ''
+ENV LDAP_GROUP_FILTER '(uniqueMember=uid={0})'
+ENV LDAP_GROUP_CLASS ''
+
+
+# TODO SMTP/IMAP Configuration
 
 
 

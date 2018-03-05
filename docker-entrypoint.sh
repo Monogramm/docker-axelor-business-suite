@@ -5,15 +5,14 @@ if [ ! -d /srv/axelor/upload ]; then
 	mkdir -p /srv/axelor/upload
 fi
 
-# Setup the default config
-if [ ! -f "$CATALINA_HOME/webapps/abs/WEB-INF/classes/application.properties" ]; then
+# If no config provided in volume, setup a default config
+if [ ! -f /srv/axelor/config/application.properties ]; then
 	echo "Setting up initial Axelor config"
 	cp "$CATALINA_HOME/webapps/abs/WEB-INF/classes/application.properties.template" /srv/axelor/config/application.properties
-	ln -s /srv/axelor/config/application.properties "$CATALINA_HOME/webapps/abs/WEB-INF/classes/application.properties"
 
 	sed -i "s|db.default.dialect = .*|db.default.dialect = ${DB_DIALECT}|" /srv/axelor/config/application.properties
 	sed -i "s|db.default.driver = .*|db.default.driver = ${DB_DRIVER}|" /srv/axelor/config/application.properties
-	sed -i "s|db.default.url = .*|db.default.url = ${DB_URL}|g" /srv/axelor/config/application.properties
+	sed -i "s|db.default.url = .*|db.default.url = jdbc:${DB_URL}|g" /srv/axelor/config/application.properties
 	sed -i "s|db.default.user = .*|db.default.user = ${DB_USER}|" /srv/axelor/config/application.properties
 	sed -i "s|db.default.password = .*|db.default.password = ${DB_PASSWORD}|" /srv/axelor/config/application.properties
 
@@ -53,6 +52,7 @@ if [ ! -f "$CATALINA_HOME/webapps/abs/WEB-INF/classes/application.properties" ];
 	echo "# ~~~~~" >>  /srv/axelor/config/application.properties
 	echo "# LDAP Configuration" >>  /srv/axelor/config/application.properties
 	echo "# ~~~~~" >>  /srv/axelor/config/application.properties
+	echo "# something like 'ldap://localhost:389'" >>  /srv/axelor/config/application.properties
 	echo "ldap.server.url = ${LDAP_URL}" >>  /srv/axelor/config/application.properties
 
 	echo "# can be 'simple' or 'CRAM-MD5'" >>  /srv/axelor/config/application.properties
@@ -76,6 +76,12 @@ if [ ! -f "$CATALINA_HOME/webapps/abs/WEB-INF/classes/application.properties" ];
 	echo "# if set, create groups on ldap server under ldap.group.base" >>  /srv/axelor/config/application.properties
 	echo "ldap.group.object.class = ${LDAP_GROUP_CLASS}" >>  /srv/axelor/config/application.properties
 
+fi
+
+# Erase existing config with the one in volume
+if [ -f /srv/axelor/config/application.properties ]; then
+	echo "Updating Axelor config"
+	cp /srv/axelor/config/application.properties "$CATALINA_HOME/webapps/abs/WEB-INF/classes/application.properties"
 fi
 
 exec "$@"
