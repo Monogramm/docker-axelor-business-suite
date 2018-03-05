@@ -12,11 +12,11 @@ if [ ! -f /srv/axelor/config/application.properties ]; then
 
 	sed -i "s|db.default.dialect = .*|db.default.dialect = ${DB_DIALECT}|" /srv/axelor/config/application.properties
 	sed -i "s|db.default.driver = .*|db.default.driver = ${DB_DRIVER}|" /srv/axelor/config/application.properties
-	sed -i "s|db.default.url = .*|db.default.url = jdbc:${DB_URL}|g" /srv/axelor/config/application.properties
-	sed -i "s|db.default.user = .*|db.default.user = ${DB_USER}|" /srv/axelor/config/application.properties
-	sed -i "s|db.default.password = .*|db.default.password = ${DB_PASSWORD}|" /srv/axelor/config/application.properties
+	sed -i "s|db.default.url =.*|db.default.url =jdbc:${DB_URL}|g" /srv/axelor/config/application.properties
+	sed -i "s|db.default.user =.*|db.default.user =${DB_USER}|" /srv/axelor/config/application.properties
+	sed -i "s|db.default.password =.*|db.default.password =${DB_PASSWORD}|" /srv/axelor/config/application.properties
 
-	sed -i "s|application.home = .*|application.home = ${URL_ROOT}|" /srv/axelor/config/application.properties
+	sed -i "s|application.home = .*|application.home = ${HOME}|" /srv/axelor/config/application.properties
 
 	sed -i "s|application.locale = .*|application.locale = ${LOCALE}|" /srv/axelor/config/application.properties
 
@@ -75,6 +75,8 @@ if [ ! -f /srv/axelor/config/application.properties ]; then
 
 	echo "# if set, create groups on ldap server under ldap.group.base" >>  /srv/axelor/config/application.properties
 	echo "ldap.group.object.class = ${LDAP_GROUP_CLASS}" >>  /srv/axelor/config/application.properties
+
+	# TODO SMTP/IMAP Configuration
 
 fi
 

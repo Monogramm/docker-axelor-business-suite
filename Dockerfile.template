@@ -51,7 +51,7 @@ ENV DB_USER ''
 ENV DB_PASSWORD ''
 
 # link to be used with header logo
-ENV URL_ROOT 'http://localhost:8080'
+ENV HOME 'http://localhost:8080'
 
 # Set default language
 ENV LOCALE 'en'
@@ -72,7 +72,7 @@ ENV DATE_FORMAT 'yyyy-MM-dd'
 ENV TIMEZONE 'UTC'
 
 
-# CORS configuration
+# TODO CORS configuration
 
 
 # LDAP Configuration
