@@ -1,9 +1,9 @@
-FROM monogramm/docker-axelor-development-kit:%%ADK_VERSION%%
+FROM monogramm/docker-axelor-development-kit:4.1
 
 LABEL maintainer="Mathieu BRUNOT <mathieu.brunot@monogramm.io>"
 
 ENV AXELOR_HOME /opt/adk
-ENV ABS_VERSION %%ABS_VERSION%%
+ENV ABS_VERSION 4.2.3
 
 # Test axelor-development-kit
 RUN set -o errexit -o nounset; \
@@ -38,7 +38,7 @@ RUN set -o errexit -o nounset ; \
 
 
 # Third stage: Deploy and configure the WAR for tomcat
-FROM tomcat:8-%%VARIANT%%
+FROM tomcat:8-jre8
 
 COPY --from=0 /tmp/abs.war /tmp/abs.war
 
@@ -94,10 +94,10 @@ ENV LDAP_GROUP_CLASS ''
 RUN set -ex; \
 	echo "Installing needed packages"; \
 	# install the packages we need
-	%%PKG_INSTALL%% \
+	apt-get update -q; apt-get install -y --no-install-recommends  \
 		unzip xmlstarlet \
 	; \
-	%%PKG_CLEAN%%\
+	rm -rf /var/lib/apt/lists/*; \
 	\
 	echo "Deploying Axelor Business Suite"; \
 	unzip /tmp/abs.war -d $CATALINA_HOME/webapps/abs; \

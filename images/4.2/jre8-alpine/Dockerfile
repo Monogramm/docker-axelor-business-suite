@@ -38,7 +38,7 @@ RUN set -o errexit -o nounset ; \
 
 
 # Third stage: Deploy and configure the WAR for tomcat
-FROM tomcat:8-jre8
+FROM tomcat:8-jre8-alpine
 
 COPY --from=0 /tmp/abs.war /tmp/abs.war
 
@@ -93,12 +93,11 @@ ENV LDAP_GROUP_CLASS ''
 
 RUN set -ex; \
 	echo "Installing needed packages"; \
-	apt-get update -q; \
 	# install the packages we need
-	apt-get install -y --no-install-recommends \
+	apk add --no-cache  \
 		unzip xmlstarlet \
 	; \
-	rm -rf /var/lib/apt/lists/*; \
+	\
 	\
 	echo "Deploying Axelor Business Suite"; \
 	unzip /tmp/abs.war -d $CATALINA_HOME/webapps/abs; \
