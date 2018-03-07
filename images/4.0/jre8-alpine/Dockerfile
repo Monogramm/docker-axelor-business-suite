@@ -3,7 +3,7 @@ FROM monogramm/docker-axelor-development-kit:4.1
 LABEL maintainer="Mathieu BRUNOT <mathieu.brunot@monogramm.io>"
 
 ENV AXELOR_HOME /opt/adk
-ENV ABS_VERSION 4.2.3
+ENV ABS_VERSION 4.0.2
 
 # Test axelor-development-kit
 RUN set -o errexit -o nounset; \

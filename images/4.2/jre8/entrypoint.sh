@@ -38,6 +38,7 @@ if [ ! -f /srv/axelor/config/application.properties ]; then
 	echo "# disable demo data import" >>  /srv/axelor/config/application.properties
 	echo "data.import.demo-data = false" >>  /srv/axelor/config/application.properties
 
+
 	echo "# ~~~~~" >>  /srv/axelor/config/application.properties
 	echo "# CORS Configuration" >>  /srv/axelor/config/application.properties
 	echo "# ~~~~~" >>  /srv/axelor/config/application.properties
@@ -48,6 +49,7 @@ if [ ! -f /srv/axelor/config/application.properties ]; then
 	echo "#cors.allow.credentials = true" >>  /srv/axelor/config/application.properties
 	echo "#cors.allow.methods = GET,PUT,POST,DELETE,HEAD,OPTIONS" >>  /srv/axelor/config/application.properties
 	echo "#cors.allow.headers = Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers" >>  /srv/axelor/config/application.properties
+
 
 	echo "# ~~~~~" >>  /srv/axelor/config/application.properties
 	echo "# LDAP Configuration" >>  /srv/axelor/config/application.properties
@@ -76,7 +78,30 @@ if [ ! -f /srv/axelor/config/application.properties ]; then
 	echo "# if set, create groups on ldap server under ldap.group.base" >>  /srv/axelor/config/application.properties
 	echo "ldap.group.object.class = ${LDAP_GROUP_CLASS}" >>  /srv/axelor/config/application.properties
 
-	# TODO SMTP/IMAP Configuration
+	# SMTP/IMAP Configuration
+	echo "# ~~~~~" >>  /srv/axelor/config/application.properties
+	echo "# Quartz Scheduler" >>  /srv/axelor/config/application.properties
+	echo "# ~~~~~" >>  /srv/axelor/config/application.properties
+	echo "# Specify whether to enable quartz scheduler" >>  /srv/axelor/config/application.properties
+	echo "quartz.enable = true" >>  /srv/axelor/config/application.properties
+
+	echo "# ~~~~~" >>  /srv/axelor/config/application.properties
+	echo "# SMTP Configuration" >>  /srv/axelor/config/application.properties
+	echo "# ~~~~~" >>  /srv/axelor/config/application.properties
+	echo "mail.smtp.host = ${SMTP_HOST}" >>  /srv/axelor/config/application.properties
+	echo "mail.smtp.port = ${SMTP_PORT}" >>  /srv/axelor/config/application.properties
+	echo "mail.smtp.channel = ${SMTP_CHANNEL}" >>  /srv/axelor/config/application.properties
+	echo "mail.smtp.user = ${SMTP_USER_NAME}" >>  /srv/axelor/config/application.properties
+	echo "mail.smtp.pass = ${SMTP_PASSWORD}" >>  /srv/axelor/config/application.properties
+
+	echo "# ~~~~~" >>  /srv/axelor/config/application.properties
+	echo "# IMAP Configuration" >>  /srv/axelor/config/application.properties
+	echo "# ~~~~~" >>  /srv/axelor/config/application.properties
+	echo "mail.imap.host = ${IMAP_HOST}" >>  /srv/axelor/config/application.properties
+	echo "mail.imap.port = ${IMAP_PORT}" >>  /srv/axelor/config/application.properties
+	echo "mail.imap.channel = ${IMAP_CHANNEL}" >>  /srv/axelor/config/application.properties
+	echo "mail.imap.user = ${IMAP_USER_NAME}" >>  /srv/axelor/config/application.properties
+	echo "mail.imap.pass = ${IMAP_PASSWORD}" >>  /srv/axelor/config/application.properties
 
 fi
 
