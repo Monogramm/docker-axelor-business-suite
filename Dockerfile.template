@@ -131,11 +131,11 @@ RUN set -ex; \
 
 VOLUME /srv/axelor/config
 VOLUME /srv/axelor/upload
-# VOLUME /srv/axelor/reports
-# VOLUME /srv/axelor/reports-gen
-# VOLUME /srv/axelor/templates
-# VOLUME /srv/axelor/data-export
-# VOLUME /srv/axelor/logs
+VOLUME /srv/axelor/reports
+VOLUME /srv/axelor/reports-gen
+VOLUME /srv/axelor/templates
+VOLUME /srv/axelor/data-export
+VOLUME /srv/axelor/logs
 
 
 EXPOSE 8080 8443
