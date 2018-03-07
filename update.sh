@@ -22,7 +22,9 @@ dockerRepo="monogramm/docker-axelor-business-suite"
 # latests=( $( curl -fsSL 'https://api.github.com/repos/axelor/abs-webapp/tags' |tac|tac| \
 # 	grep -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+' | \
 # 	sort -urV ) )
-latests=( "4.0.2" "4.1.2" "4.2.3" )
+latests=( "4.0.2" "4.2.3" )
+
+# "4.1.x" Requires a manual magement
 
 # TODO Find a way to retrieve automatically the latest version from GitHub
 adkVersion=4.1
@@ -42,7 +44,7 @@ for latest in "${latests[@]}"; do
 	fi
 
 	# Only add versions >= 4.0
-	if version_greater_or_equal "$version" "4.2"; then
+	if version_greater_or_equal "$version" "4.0"; then
 
 		for variant in jre8 jre8-alpine; do
 			echo "updating $latest [$version] $variant"
