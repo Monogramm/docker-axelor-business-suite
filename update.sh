@@ -22,9 +22,10 @@ dockerRepo="monogramm/docker-axelor-business-suite"
 # latests=( $( curl -fsSL 'https://api.github.com/repos/axelor/abs-webapp/tags' |tac|tac| \
 # 	grep -oE '[[:digit:]]+\.[[:digit:]]+\.[[:digit:]]+' | \
 # 	sort -urV ) )
-latests=( "4.0.2" "4.2.3" )
+latests=( "4.2.3" )
 
-# "4.1.x" Requires a manual magement
+# "4.0.x" Requires a ADK ~4.0.0, which isn't available
+# "4.1.x" Requires a manual magement due to axelor-process-studio
 
 # TODO Find a way to retrieve automatically the latest version from GitHub
 adkVersion=4.1

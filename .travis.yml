@@ -28,5 +28,3 @@ notifications:
 env: # Environments
     - VERSION=4.2 VARIANT=jre8-alpine
     - VERSION=4.2 VARIANT=jre8
-    - VERSION=4.0 VARIANT=jre8-alpine
-    - VERSION=4.0 VARIANT=jre8
