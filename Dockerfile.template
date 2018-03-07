@@ -72,7 +72,7 @@ ENV DATE_FORMAT 'yyyy-MM-dd'
 ENV TIMEZONE 'UTC'
 
 
-# TODO CORS configuration
+# TODO CORS configuration?
 
 
 # LDAP Configuration
@@ -87,7 +87,18 @@ ENV LDAP_GROUP_FILTER '(uniqueMember=uid={0})'
 ENV LDAP_GROUP_CLASS ''
 
 
-# TODO SMTP/IMAP Configuration
+# SMTP/IMAP Configuration
+ENV SMTP_HOST ''
+ENV SMTP_PORT ''
+ENV SMTP_CHANNEL ''
+ENV SMTP_USER_NAME ''
+ENV SMTP_PASSWORD ''
+
+ENV IMAP_HOST ''
+ENV IMAP_PORT ''
+ENV IMAP_CHANNEL ''
+ENV IMAP_USER_NAME ''
+ENV IMAP_PASSWORD ''
 
 
 

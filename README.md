@@ -350,11 +350,105 @@ LDAP_GROUP_FILTER=(uniqueMember=uid={0})
 
 ### LDAP_GROUP_CLASS
 
-*Default value*: ``
+*Default value*: 
 
 Examples:
 ```
 LDAP_GROUP_CLASS=groupOfUniqueNames
+```
+
+
+### SMTP_HOST
+
+*Default value*: 
+
+Examples:
+```
+SMTP_HOST=smtp.gmail.com
+```
+
+### SMTP_PORT
+
+*Default value*: 
+
+Examples:
+```
+SMTP_PORT=587
+```
+
+### SMTP_CHANNEL
+
+*Default value*: 
+
+Examples:
+```
+SMTP_CHANNEL=starttls
+```
+
+### SMTP_USER_NAME
+
+*Default value*: 
+
+Examples:
+```
+SMTP_USER_NAME=user@gmail.com
+```
+
+### SMTP_PASSWORD
+
+*Default value*: 
+
+Examples:
+```
+SMTP_PASSWORD=secret
+```
+
+
+### IMAP_HOST
+
+*Default value*: 
+
+Examples:
+```
+IMAP_HOST=imap.gmail.com
+```
+
+### IMAP_PORT
+
+*Default value*: 
+
+Examples:
+```
+IMAP_PORT=993
+IMAP_PORT=25
+```
+
+### IMAP_CHANNEL
+
+*Default value*: 
+
+Examples:
+```
+IMAP_CHANNEL=ssl
+IMAP_CHANNEL=starttls
+```
+
+### IMAP_USER_NAME
+
+*Default value*: 
+
+Examples:
+```
+IMAP_USER_NAME=user@gmail.com
+```
+
+### IMAP_PASSWORD
+
+*Default value*: 
+
+Examples:
+```
+IMAP_PASSWORD=secret
 ```
 
 
