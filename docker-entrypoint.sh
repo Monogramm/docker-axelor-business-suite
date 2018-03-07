@@ -78,12 +78,12 @@ if [ ! -f /srv/axelor/config/application.properties ]; then
 	echo "# if set, create groups on ldap server under ldap.group.base" >>  /srv/axelor/config/application.properties
 	echo "ldap.group.object.class = ${LDAP_GROUP_CLASS}" >>  /srv/axelor/config/application.properties
 
-	# SMTP/IMAP Configuration
 	echo "# ~~~~~" >>  /srv/axelor/config/application.properties
 	echo "# Quartz Scheduler" >>  /srv/axelor/config/application.properties
 	echo "# ~~~~~" >>  /srv/axelor/config/application.properties
 	echo "# Specify whether to enable quartz scheduler" >>  /srv/axelor/config/application.properties
-	echo "quartz.enable = true" >>  /srv/axelor/config/application.properties
+	echo "#quartz.enable = true" >>  /srv/axelor/config/application.properties
+	echo "#quartz.threadCount = 5" >>  /srv/axelor/config/application.properties
 
 	echo "# ~~~~~" >>  /srv/axelor/config/application.properties
 	echo "# SMTP Configuration" >>  /srv/axelor/config/application.properties
@@ -97,6 +97,7 @@ if [ ! -f /srv/axelor/config/application.properties ]; then
 	echo "# ~~~~~" >>  /srv/axelor/config/application.properties
 	echo "# IMAP Configuration" >>  /srv/axelor/config/application.properties
 	echo "# ~~~~~" >>  /srv/axelor/config/application.properties
+	echo "# (quartz scheduler should be enabled for fetching stream replies)" >>  /srv/axelor/config/application.properties
 	echo "mail.imap.host = ${IMAP_HOST}" >>  /srv/axelor/config/application.properties
 	echo "mail.imap.port = ${IMAP_PORT}" >>  /srv/axelor/config/application.properties
 	echo "mail.imap.channel = ${IMAP_CHANNEL}" >>  /srv/axelor/config/application.properties
