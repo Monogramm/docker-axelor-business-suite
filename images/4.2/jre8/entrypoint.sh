@@ -4,6 +4,21 @@ set -e
 if [ ! -d /srv/axelor/upload ]; then
 	mkdir -p /srv/axelor/upload
 fi
+if [ ! -d /srv/axelor/reports ]; then
+	mkdir -p /srv/axelor/reports
+fi
+if [ ! -d /srv/axelor/reports-gen ]; then
+	mkdir -p /srv/axelor/reports-gen
+fi
+if [ ! -d /srv/axelor/templates ]; then
+	mkdir -p /srv/axelor/templates
+fi
+if [ ! -d /srv/axelor/data-export ]; then
+	mkdir -p /srv/axelor/data-export
+fi
+if [ ! -d /srv/axelor/logs ]; then
+	mkdir -p /srv/axelor/logs
+fi
 
 # If no config provided in volume, setup a default config
 if [ ! -f /srv/axelor/config/application.properties ]; then
@@ -31,6 +46,16 @@ if [ ! -f /srv/axelor/config/application.properties ]; then
 	sed -i "s|date.timezone = .*|date.timezone = ${TIMEZONE}|" /srv/axelor/config/application.properties
 
 	sed -i "s|file.upload.dir = .*|file.upload.dir = /srv/axelor/upload|" /srv/axelor/config/application.properties
+
+	echo "# ~~~~~" >>  /srv/axelor/config/application.properties
+	echo "# Other settings" >>  /srv/axelor/config/application.properties
+	echo "# ~~~~~" >>  /srv/axelor/config/application.properties
+	echo "reports.design.dir = /srv/axelor/reports" >>  /srv/axelor/config/application.properties
+	echo "reports.output.dir = /srv/axelor/reports-gen" >>  /srv/axelor/config/application.properties
+	echo "template.search.dir = /srv/axelor/templates" >>  /srv/axelor/config/application.properties
+	echo "data.export.dir = /srv/axelor/data-export" >>  /srv/axelor/config/application.properties
+	echo "logging.path = /srv/axelor/logs" >>  /srv/axelor/config/application.properties
+
 
 	echo "# ~~~~~" >>  /srv/axelor/config/application.properties
 	echo "# DEMO Configuration" >>  /srv/axelor/config/application.properties
