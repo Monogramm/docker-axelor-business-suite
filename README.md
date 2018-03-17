@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/Monogramm/docker-axelor-business-suite.svg)](https://travis-ci.org/Monogramm/docker-axelor-business-suite)
+[![Docker Automated buid](https://img.shields.io/docker/build/monogramm/docker-axelor-business-suite.svg)](https://hub.docker.com/r/monogramm/docker-axelor-business-suite/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/monogramm/docker-axelor-business-suite.svg)](https://hub.docker.com/r/monogramm/docker-axelor-business-suite/)
 
 **This container is still in development and shouldn't be considered production ready!**
 
