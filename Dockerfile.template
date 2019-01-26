@@ -1,6 +1,6 @@
 FROM monogramm/docker-axelor-development-kit:%%ADK_VERSION%%
 
-LABEL maintainer="Mathieu BRUNOT <mathieu.brunot@monogramm.io>"
+LABEL maintainer="mathieu.brunot at monogramm dot io"
 
 ENV AXELOR_HOME /opt/adk
 ENV ABS_VERSION %%ABS_VERSION%%
